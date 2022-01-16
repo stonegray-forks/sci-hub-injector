@@ -14,6 +14,7 @@ Please contribute new websites!
 - Elsevier / ScienceDirect
 - Eureka Select
 - Science
+- SpringerLink
 
 ## Screenshots
 
