@@ -47,7 +47,7 @@ Thanks!
 
 ## Info for lawyers and other people in suits (and everyone else)
 
-Since this is getting some traction, I don't recommend doing things that go against whatever laws apply where you are. This is the user's reponsibility.
+Since this is getting some traction, I don't recommend doing things that go against whatever laws that apply where you are. This is the user's reponsibility.
 
 Next, I'll quote a hero of mine, Aaron Swartz:
 
