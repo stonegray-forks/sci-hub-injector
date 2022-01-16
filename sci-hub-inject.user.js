@@ -1,3 +1,19 @@
+// ==UserScript==
+// @name Sci Hub Injector
+// @version 1.0
+// @updateURL https://raw.githubusercontent.com/rickwierenga/sci-hub-injector/main/sci-hub-inject.user.js
+// @description Adds SciHub links to popular publishing websites to make free access to science even easier.
+// @icon https://raw.githubusercontent.com/rickwierenga/sci-hub-injector/main/icon.png
+// @include https://pubmed.ncbi.nlm.nih.gov/*
+// @include https://www.nature.com/*
+// @include https://www.tandfonline.com/*
+// @include https://www.sciencedirect.com/*
+// @include http://www.eurekaselect.com/*
+// @include https://www.science.org/*
+// @include https://dom-pubs.onlinelibrary.wiley.com/doi/*
+// @include https://link.springer.com/*
+// ==/UserScript==
+
 function sciHubLink(doi) {
   return `https://sci-hub.se/${doi}`;
 }
