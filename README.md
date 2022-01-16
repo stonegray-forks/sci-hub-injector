@@ -34,9 +34,12 @@ https://stackoverflow.com/questions/24577024/install-chrome-extension-form-outsi
 
 1. Add link to `manifest.json`.
 2. Add a function to `inject.js`.
+
    2.1. Extract DOI from website.
+
    2.2. Add element with link to SciHub to DOM. Use the same classes and structure as the website, for niceness.
-3. Add `else if` clause if statement in the `addSciHubLink` function in `inject.js`.
+
+3. Add an `else if` clause to the if statement in the `addSciHubLink` function in `inject.js`.
 4. Test to make sure it works.
 
 Thanks!
