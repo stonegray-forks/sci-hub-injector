@@ -122,6 +122,57 @@ function wiley() {
   `;
 }
 
+function springerLink() {
+  const url = document.location.href;
+  const doi = getSpringerDoi(url);
+  if (url.includes("journal")) {
+    springerLinkJournal();
+  } else if (url.includes("article")) {
+    springerLinkArticle(doi);
+  } else {
+    springerLinkGeneral(doi);
+  }
+}
+
+function getSpringerDoi(url) {
+  return decodeURIComponent(url).match(/10.+?[^#]+/)?.[0];
+}
+
+function springerLinkJournal() {
+  const articleListElements = Array.from(document.querySelectorAll(".app-volumes-and-issues__article-list > li"));
+  for (const articleElement of articleListElements) {
+    const articleUrl = articleElement.querySelector("h3 a").getAttribute("href");
+    const doi = getSpringerDoi(articleUrl);
+    articleElement.querySelector(".c-meta").innerHTML += `
+      <li class="c-meta__item c-meta__item--block-sm-max">
+        <a href="${sciHubLink(doi)}" title="SciHub">View on SciHub</a>
+      </li>
+    `;
+  }
+}
+
+function springerLinkArticle(doi) {
+  const details = document.querySelector(".c-article-info-details");
+  details.innerHTML += `
+    <a class="c-article-info-details__cite-as" href="${sciHubLink(doi)}" title="SciHub">
+      <img width=24 height=24 src="https://sci-hub.se/misc/img/ravenround.gif" style="vertical-align:bottom"/>
+      View On SciHub
+    </a>
+  `;
+}
+
+function springerLinkGeneral(doi) {
+  const contextContainer = document.querySelector(".main-context__container") || document.getElementById("book-metrics");
+  contextContainer.innerHTML += `
+    <div style="align-self:center">
+      <a href="${sciHubLink(doi)}" title="SciHub">
+        <img width=24 height=24 src="https://sci-hub.se/misc/img/ravenround.gif" style="width:24px; vertical-align:bottom"/>
+        View On SciHub
+      </a>
+    </div>
+  `;
+}
+
 function addSciHubLink() {
   const url = document.location.href;
   if (url.includes("pubmed.ncbi.nlm.nih.gov")) {
@@ -138,6 +189,8 @@ function addSciHubLink() {
     science();
   } else if (url.includes("wiley.com")) {
     wiley();
+  } else if (url.includes("link.springer.com")) {
+    springerLink();
   }
 }
 
