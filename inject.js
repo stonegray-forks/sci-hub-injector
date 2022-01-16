@@ -125,14 +125,12 @@ function wiley() {
 function springerLink() {
   const url = document.location.href;
   const doi = getSpringerDoi(url);
-  if (url.includes('journal')) {
+  if (url.includes("journal")) {
     springerLinkJournal();
-  } else if (url.includes('article')) {
+  } else if (url.includes("article")) {
     springerLinkArticle(doi);
-  } else if (url.includes('book')) {
-    springerLinkBook(doi);
-  } else if (url.includes('chapter')) {
-    springerLinkChapter(doi);
+  } else {
+    springerLinkGeneral(doi);
   }
 }
 
@@ -141,11 +139,11 @@ function getSpringerDoi(url) {
 }
 
 function springerLinkJournal() {
-  const articleListElements = Array.from(document.querySelectorAll('.app-volumes-and-issues__article-list > li'));
+  const articleListElements = Array.from(document.querySelectorAll(".app-volumes-and-issues__article-list > li"));
   for (const articleElement of articleListElements) {
-    const articleUrl = articleElement.querySelector('h3 a').getAttribute('href');
+    const articleUrl = articleElement.querySelector("h3 a").getAttribute("href");
     const doi = getSpringerDoi(articleUrl);
-    articleElement.querySelector('.c-meta').innerHTML += `
+    articleElement.querySelector(".c-meta").innerHTML += `
       <li class="c-meta__item c-meta__item--block-sm-max">
         <a href="${sciHubLink(doi)}" title="SciHub">View on SciHub</a>
       </li>
@@ -154,7 +152,7 @@ function springerLinkJournal() {
 }
 
 function springerLinkArticle(doi) {
-  const details = document.querySelector('.c-article-info-details');
+  const details = document.querySelector(".c-article-info-details");
   details.innerHTML += `
     <a class="c-article-info-details__cite-as" href="${sciHubLink(doi)}" title="SciHub">
       <img width=24 height=24 src="https://sci-hub.se/misc/img/ravenround.gif" style="vertical-align:bottom"/>
@@ -163,20 +161,8 @@ function springerLinkArticle(doi) {
   `;
 }
 
-function springerLinkBook(doi) {
-  const describeSection = document.querySelector('.evaluation-section__text-col');
-  describeSection.innerHTML += `
-    <span class="c-box" style="margin-bottom:1rem; display:inline-block">
-      <a href="${sciHubLink(doi)}" title="SciHub">
-        <img width=24 height=24 src="https://sci-hub.se/misc/img/ravenround.gif" style="vertical-align:bottom"/>
-        View On SciHub
-      </a>
-    </span>
-  `;
-}
-
-function springerLinkChapter(doi) {
-  const contextContainer = document.querySelector('.main-context__container');
+function springerLinkGeneral(doi) {
+  const contextContainer = document.querySelector(".main-context__container") || document.getElementById("book-metrics");
   contextContainer.innerHTML += `
     <div style="align-self:center">
       <a href="${sciHubLink(doi)}" title="SciHub">
