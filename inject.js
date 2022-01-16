@@ -129,11 +129,13 @@ function springerLink() {
     springerLinkJournal();
   } else if (url.includes('article')) {
     springerLinkArticle(doi);
+  } else if (url.includes('book')) {
+    springerLinkBook(doi);
   }
 }
 
 function getSpringerDoi(url) {
-  return url.match(/10.+?[^#]+/)?.[0];
+  return decodeURIComponent(url).match(/10.+?[^#]+/)?.[0];
 }
 
 function springerLinkJournal() {
@@ -156,6 +158,18 @@ function springerLinkArticle(doi) {
       <img width=24 height=24 src="https://sci-hub.se/misc/img/ravenround.gif" style="vertical-align:bottom"/>
       View On SciHub
     </a>
+  `;
+}
+
+function springerLinkBook(doi) {
+  const describeSection = document.querySelector('.evaluation-section__text-col');
+  describeSection.innerHTML += `
+    <span class="c-box" style="margin-bottom:1rem; display:inline-block">
+      <a href="${sciHubLink(doi)}" title="SciHub">
+        <img width=24 height=24 src="https://sci-hub.se/misc/img/ravenround.gif" style="vertical-align:bottom"/>
+        View On SciHub
+      </a>
+    </span>
   `;
 }
 
