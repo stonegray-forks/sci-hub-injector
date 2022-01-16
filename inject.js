@@ -122,6 +122,32 @@ function wiley() {
   `;
 }
 
+function springerLink() {
+  const url = document.location.href;
+  const doi = getSpringerDoi(url);
+  if (url.includes('journal')) {
+    springerLinkJournal();
+  }
+}
+
+function getSpringerDoi(url) {
+  return url.match(/10.+?[^#]+/)?.[0];
+}
+
+function springerLinkJournal() {
+  const articleListElements = Array.from(document.querySelectorAll('.app-volumes-and-issues__article-list > li'));
+  for (const articleElement of articleListElements) {
+    const articleUrl = articleElement.querySelector('h3 a').getAttribute('href');
+    const doi = getSpringerDoi(articleUrl);
+    articleElement.querySelector('.c-meta').innerHTML += `
+      <li class="c-meta__item c-meta__item--block-sm-max">
+        <a href="${sciHubLink(doi)}" title="SciHub">View on SciHub</a>
+      </li>
+    `;
+  }
+
+}
+
 function addSciHubLink() {
   const url = document.location.href;
   if (url.includes("pubmed.ncbi.nlm.nih.gov")) {
@@ -138,6 +164,8 @@ function addSciHubLink() {
     science();
   } else if (url.includes("wiley.com")) {
     wiley();
+  } else if (url.includes("link.springer.com")) {
+    springerLink();
   }
 }
 
