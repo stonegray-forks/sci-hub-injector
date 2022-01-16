@@ -16,7 +16,7 @@
         "https://dom-pubs.onlinelibrary.wiley.com/doi/*",
         "https://link.springer.com/*"
       ],
-      "js": ["inject.js"]
+      "js": ["sci-hub-inject.user.js"]
     }
   ],
   "icons": {
