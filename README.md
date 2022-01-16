@@ -6,6 +6,12 @@ Inject freedom into science publisher websites, with style.
 
 Please contribute new websites!
 
+## Usage
+
+* Chrome/Chromium: see instructions below.
+* Firefox: https://addons.mozilla.org/en-US/firefox/addon/sci-hub-injector/ (currently lagging behind a little bit, but the updated has been submitted and will be available within 24 hours)
+* Brave: should work when you replace `chrome://extenions` with `brave://extenions`. Not tested.
+
 ## Supported sites
 
 - PubMed
