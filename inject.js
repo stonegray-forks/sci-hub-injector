@@ -127,6 +127,8 @@ function springerLink() {
   const doi = getSpringerDoi(url);
   if (url.includes('journal')) {
     springerLinkJournal();
+  } else if (url.includes('article')) {
+    springerLinkArticle(doi);
   }
 }
 
@@ -145,7 +147,16 @@ function springerLinkJournal() {
       </li>
     `;
   }
+}
 
+function springerLinkArticle(doi) {
+  const details = document.querySelector('.c-article-info-details');
+  details.innerHTML += `
+    <a class="c-article-info-details__cite-as" href="${sciHubLink(doi)}" title="SciHub">
+      <img width=24 height=24 src="https://sci-hub.se/misc/img/ravenround.gif" style="vertical-align:bottom"/>
+      View On SciHub
+    </a>
+  `;
 }
 
 function addSciHubLink() {
