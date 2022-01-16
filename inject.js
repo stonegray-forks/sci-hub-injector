@@ -131,6 +131,8 @@ function springerLink() {
     springerLinkArticle(doi);
   } else if (url.includes('book')) {
     springerLinkBook(doi);
+  } else if (url.includes('chapter')) {
+    springerLinkChapter(doi);
   }
 }
 
@@ -170,6 +172,18 @@ function springerLinkBook(doi) {
         View On SciHub
       </a>
     </span>
+  `;
+}
+
+function springerLinkChapter(doi) {
+  const contextContainer = document.querySelector('.main-context__container');
+  contextContainer.innerHTML += `
+    <div style="align-self:center">
+      <a href="${sciHubLink(doi)}" title="SciHub">
+        <img width=24 height=24 src="https://sci-hub.se/misc/img/ravenround.gif" style="width:24px; vertical-align:bottom"/>
+        View On SciHub
+      </a>
+    </div>
   `;
 }
 
