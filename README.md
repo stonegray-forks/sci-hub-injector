@@ -44,3 +44,11 @@ https://stackoverflow.com/questions/24577024/install-chrome-extension-form-outsi
 4. Test to make sure it works.
 
 Thanks!
+
+## Info for lawyers and other people in suits (and everyone else)
+
+Since this is getting some traction, I don't recommend doing things that go against whatever laws apply where you are. This is the user's reponsibility.
+
+Next, I'll quote a hero of mine, Aaron Swartz:
+
+> [There is no justice in following unjust laws](https://openaccessmanifesto.wordpress.com).
