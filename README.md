@@ -9,6 +9,7 @@ Please contribute new websites!
 ## Usage
 
 * Chrome/Chromium: see instructions below.
+* Safari: see instructions below.
 * Firefox: https://addons.mozilla.org/en-US/firefox/addon/sci-hub-injector/
 * Brave: should work when you replace `chrome://extenions` with `brave://extenions`. Not tested.
 
@@ -27,7 +28,10 @@ Please contribute new websites!
 ![PubMed Screenshot](.github/pubmed.png)
 ![Nature Screenshot](.github/nature.png)
 
-## Installation
+## Installation 
+
+
+### Chrome
 
 1. Visit `chrome://extensions` (via omnibox or menu -> Tools -> Extensions).
 2. Enable Developer mode by ticking the checkbox in the upper-right corner.
@@ -36,6 +40,17 @@ Please contribute new websites!
 
 Copied from:
 https://stackoverflow.com/questions/24577024/install-chrome-extension-form-outside-the-chrome-web-store
+
+
+### Safari (macOS)
+
+1. Download and install Userscripts ([Github](https://github.com/quoid/userscripts)) ([App Store](https://itunes.apple.com/us/app/userscripts/id1463298887))
+2. Copy the `sci-hub-inject.user.js` into `~/User/Library/Containers/Userscripts/Data/Documents/scripts`
+
+### Safari (iPhone/iPad)
+
+1. Download and install Userscripts ([Github](https://github.com/quoid/userscripts)) ([App Store](https://itunes.apple.com/us/app/userscripts/id1463298887))
+2. Open the Userscripts app and add `sci-hub-inject.user.js`
 
 ## Contributing
 
